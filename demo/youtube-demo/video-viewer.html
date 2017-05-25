@@ -60,7 +60,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     provides this route decides where this element lives in the URL space. In
     this case, the parent, which uses hashes, matches #/video and hence this
     element lives in <App serving point>?querParams#/video/:vid -->
-    <app-route route="{{route}}" pattern="/:vid" data="{{data}}" query-params="{{queryParams}}">
+    <app-route route="{{route}}" pattern="/:vid(.*B.*)" data="{{data}}" query-params="{{queryParams}}">
     </app-route>
 
     <!-- You can bind any element's state into the URL by binding their

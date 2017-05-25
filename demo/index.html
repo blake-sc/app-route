@@ -81,7 +81,7 @@ http://polymer.github.io/PATENTS.txt
     Parameters are extracted into the `data` object. The rest of the path that
     comes after the `pattern` is put into the `tail` object, which can be
     passed to the `route` property of downstream app-routes. -->
-    <app-route route="{{route}}" pattern="/:page" data="{{data}}"></app-route>
+    <app-route route="{{route}}" pattern="/:page(.*)" data="{{data}}"></app-route>
     <app-route route="{{route}}" pattern="/search" tail="{{searchTail}}"></app-route>
     <app-route route="{{route}}" pattern="/video" tail="{{videoTail}}" active="{{videoPageActive}}"></app-route>
 
