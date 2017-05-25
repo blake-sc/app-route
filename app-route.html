@@ -287,7 +287,20 @@ the `app-route` will update `route.path`. This in-turn will update the
           matched.push(pathPiece);
 
           if (patternPiece.charAt(0) == ':') {
-            namedMatches[patternPiece.slice(1)] = pathPiece;
+            console.log(patternPiece, pathPiece);
+            let m = patternPiece.match(/:(\w+)(\(.*\))/);
+            if (m) {
+              //this is a regexp match
+              console.log(m, m[1], m[2]);
+              if (pathPiece.match(RegExp(m[2]))) {
+                namedMatches[m[1]] = pathPiece;
+              } else {
+                this.__resetProperties();
+                return;
+              }
+            } else {
+              namedMatches[patternPiece.slice(1)] = pathPiece;
+            }
           } else if (patternPiece !== pathPiece) {
             this.__resetProperties();
             return;
